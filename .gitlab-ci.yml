@@ -1,0 +1,32 @@
+stages:
+  - validate
+  - deploy
+
+validate_task_structure:
+  stage: validate
+  tags: [tasks-deploy]
+  script:
+    - python3 scripts/validate_structure.py
+
+validate_tasks:
+  stage: validate
+  tags: [tasks-deploy]
+  needs: [validate_task_structure]
+  script:
+    - python3 scripts/validate_tasks.py
+
+validate_ports:
+  stage: validate
+  tags: [tasks-deploy]
+  needs: [validate_task_structure]
+  script:
+    - python3 scripts/validate_ports.py
+
+deploy_tasks:
+  stage: deploy
+  tags: [tasks-deploy]
+  script:
+    - chmod +x scripts/deploy_tasks.sh
+    - scripts/deploy_tasks.sh
+  rules:
+    - if: $CI_COMMIT_REF_PROTECTED == "true"

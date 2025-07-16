@@ -1,0 +1,6 @@
+[config]
+url = http://10.255.248.2/
+access_token = $CTFD_API_KEY
+
+[challenges]
+

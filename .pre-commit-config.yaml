@@ -1,0 +1,23 @@
+repos:
+- repo: local
+  hooks:
+    - id: validate-structure
+      name: Проверка структуры задач
+      entry: python scripts/validate_structure.py
+      language: python
+      additional_dependencies: ['colorama']
+      always_run: true
+
+    - id: validate-ports
+      name: Проверка уникальности портов
+      entry: python scripts/validate_ports.py
+      language: python
+      additional_dependencies: ['pyyaml']
+      always_run: true
+
+    - id: validate-tasks
+      name: Линтинг challenge.yaml через ctfcli
+      entry: python scripts/validate_tasks.py
+      language: python
+      additional_dependencies: ['ctfcli']
+      files: ^tasks/.+/challenge\.(yml|yaml)$
