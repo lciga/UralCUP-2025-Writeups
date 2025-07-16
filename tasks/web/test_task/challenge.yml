@@ -1,0 +1,22 @@
+name: "Test task"
+author: "@jettplay"
+category: "web"
+description: |
+  > Тест деплоя с GitLab
+attribution: "Автор [@jettplay](https://t.me/jettplay)"
+value: 1000
+type: dynamic
+extra:
+    initial: 1000
+    decay: 20
+    minimum: 50
+flags:
+  - TyumenCTF{t3st_t5sk}
+tags:
+  - web
+  - easy
+connection_info: "http://5.1.53.43:5099/"
+hints:
+  - Хинт
+state: visible
+version: "0.1"
