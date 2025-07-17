@@ -1,0 +1,15 @@
+[Task Development]      @UralCTF2025/task-reviewers
+tasks/
+
+[CI-CD]                 @UralCTF2025/ci-cd
+scripts/
+.gitlab-ci.yml
+.pre-commit-config.yaml
+install_hooks.sh
+
+[General]               @UralCTF2025/general
+.gitignore
+README.md
+CODEOWNERS
+example/
+pages/
