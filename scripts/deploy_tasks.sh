@@ -9,7 +9,6 @@ echo "Deploying all tasks in docker..."
 
 for file in $changed_files; do
 	directory=$(dirname $file)
-	echo "$directory";
 	if [[ $directory == */deploy ]]; then
 		echo "Deploying $directory...";
 		docker compose -f $directory/docker-compose.yml up --build -d; 
