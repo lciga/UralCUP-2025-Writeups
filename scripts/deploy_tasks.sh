@@ -20,12 +20,12 @@ echo "All tasks are deployed"
 changed_files=$(git diff-tree --no-commit-id --name-only -r $CI_COMMIT_SHA);
 
 echo "Deploying all tasks in CTFd..."
-cd ..
-for file in tasks/$changed_files; do
+
+for file in $changed_files; do
     directory=$( echo "$file" | sed -nE 's/(tasks\/(web|crypto|stego|forensic|osint|joy|reverse|pwn)\/[^\/]+?)\/.+?challenge\.(yaml|yml)/\1/p' )
-    if [ -d "tasks/$directory" ]; then
+    if [ -d "$directory" ]; then
 		echo "Deploying $directory";
-		ctf challenge install tasks/$directory;
+		ctf challenge install $directory;
     fi
 done
 

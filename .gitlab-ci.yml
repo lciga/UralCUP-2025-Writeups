@@ -26,6 +26,7 @@ deploy_tasks:
   stage: deploy
   tags: [tasks-deploy]
   script:
+    - cp -r ../.ctf .
     - chmod +x scripts/deploy_tasks.sh
     - scripts/deploy_tasks.sh
   rules:
