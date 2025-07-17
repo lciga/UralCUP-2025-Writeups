@@ -26,7 +26,6 @@ deploy_tasks:
   stage: deploy
   tags: [tasks-deploy]
   script:
-    - echo "access_token = $CTFD_API_KEY" >> .ctf/config
     - chmod +x scripts/deploy_tasks.sh
     - scripts/deploy_tasks.sh
   rules:
