@@ -9,7 +9,7 @@ type: dynamic
 extra:
     initial: 1000
     decay: 20
-    minimum: 60
+    minimum: 100
 flags:
   - TyumenCTF{3rr_t00_m4ny_r3d1r3cts_F93CD9}
 tags:
