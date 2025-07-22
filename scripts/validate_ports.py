@@ -26,6 +26,8 @@ def check_ports_used(compose_file_paths):
                 ports = service_config.get('ports', [])
                 for port_mapping in ports:
                     host_port = port_mapping.split(':')[0]
+                    if int(host_port) < 5000 or int(host_port) > 5999:
+                        errors.append(f"Port {host_port} must be between 5000 and 5999 in file {path}.")
                     if host_port in used_ports:
                         errors.append(f"Port {host_port} already using in file {path}.")
                     else:
@@ -39,6 +41,6 @@ def check_ports_used(compose_file_paths):
         print("All public ports are unique.")
 
 if __name__ == "__main__":
-    directory = '.'
+    directory = 'tasks'
     compose_files = find_docker_compose_files(directory)
     check_ports_used(compose_files)
