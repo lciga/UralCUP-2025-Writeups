@@ -1,0 +1,15 @@
+[Task Development]      @jettplay
+/tasks/
+
+[CI-CD]                 @jettplay
+/scripts/
+/.gitlab-ci.yml
+/.pre-commit-config.yaml
+/install_hooks.sh
+
+[General]               @jettplay
+/.gitignore
+/README.md
+/CODEOWNERS
+/example/
+/pages/
