@@ -7,6 +7,9 @@ validate_task_structure:
   tags: [tasks-deploy]
   script:
     - python3 scripts/validate_structure.py
+  only:
+    changes:
+      - tasks/*
 
 validate_tasks:
   stage: validate
@@ -14,6 +17,9 @@ validate_tasks:
   needs: [validate_task_structure]
   script:
     - python3 scripts/validate_tasks.py
+  only:
+    changes:
+      - tasks/*
 
 validate_ports:
   stage: validate
@@ -21,6 +27,9 @@ validate_ports:
   needs: [validate_task_structure]
   script:
     - python3 scripts/validate_ports.py
+  only:
+    changes:
+      - tasks/*
 
 deploy_tasks:
   stage: deploy
@@ -29,5 +38,8 @@ deploy_tasks:
     - cp -r ../.ctf .
     - chmod +x scripts/deploy_tasks.sh
     - scripts/deploy_tasks.sh
+  only:
+    changes:
+      - tasks/*
   rules:
     - if: $CI_COMMIT_REF_PROTECTED == "true"
