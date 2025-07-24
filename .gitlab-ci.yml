@@ -38,8 +38,5 @@ deploy_tasks:
     - cp -r ../.ctf .
     - chmod +x scripts/deploy_tasks.sh
     - scripts/deploy_tasks.sh
-  only:
-    changes:
-      - tasks/*
   rules:
     - if: $CI_COMMIT_REF_PROTECTED == "true"
