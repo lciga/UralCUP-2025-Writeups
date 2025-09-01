@@ -4,6 +4,15 @@ stages:
 
 before_script:
   - pip install -r scripts/requirements.txt
+  - mkdir .ctf
+  - |
+    cat <<EOF > .ctf/config
+    [challenges]
+
+    [config]
+    url = https://ctfd.uralctf.org
+    access_token = $CTFD_API_KEY
+    EOF
 
 validate_task_structure:
   stage: validate
@@ -41,16 +50,6 @@ deploy_tasks:
 deploy_tasks_to_ctfd:
   stage: deploy
   script:
-    - pip3 install ctfcli
-    - mkdir .ctf
-    - |
-      cat <<EOF > .ctf/config
-      [challenges]
-
-      [config]
-      url = https://ctfd.uralctf.org
-      access_token = $CTFD_API_KEY
-      EOF
     - chmod +x scripts/deploy_tasks_to_ctfd.sh
     - scripts/deploy_tasks_to_ctfd.sh
   rules:
