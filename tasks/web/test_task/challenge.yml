@@ -17,6 +17,6 @@ tags:
   - easy
 connection_info: "http://5.1.53.43:5099/"
 hints:
-  - Хинт
+  - Хинт123
 state: visible
 version: "0.1"
