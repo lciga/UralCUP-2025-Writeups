@@ -4,7 +4,6 @@ stages:
 
 validate_task_structure:
   stage: validate
-  tags: [tasks-deploy]
   script:
     - python3 scripts/validate_structure.py
   only:
@@ -13,7 +12,6 @@ validate_task_structure:
 
 validate_tasks:
   stage: validate
-  tags: [tasks-deploy]
   needs: [validate_task_structure]
   script:
     - python3 scripts/validate_tasks.py
@@ -23,7 +21,6 @@ validate_tasks:
 
 validate_ports:
   stage: validate
-  tags: [tasks-deploy]
   needs: [validate_task_structure]
   script:
     - python3 scripts/validate_ports.py
@@ -33,7 +30,13 @@ validate_ports:
 
 deploy_tasks:
   stage: deploy
-  tags: [k8s]
+  tags: [tasks-deploy]
+  script:
+    - chmod +x scripts/deploy_tasks.sh
+    - scripts/deploy_tasks.sh
+
+deploy_tasks_to_ctfd:
+  stage: deploy
   script:
     - pip3 install ctfcli
     - mkdir .ctf
@@ -45,7 +48,7 @@ deploy_tasks:
       url = https://ctfd.uralctf.org
       access_token = $CTFD_API_KEY
       EOF
-    - chmod +x scripts/deploy_tasks.sh
-    - scripts/deploy_tasks.sh
+    - chmod +x scripts/deploy_tasks_to_ctfd.sh
+    - scripts/deploy_tasks_to_ctfd.sh
   rules:
     - if: $CI_COMMIT_REF_PROTECTED == "true"
