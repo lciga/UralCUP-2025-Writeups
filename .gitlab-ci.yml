@@ -54,7 +54,6 @@ deploy_tasks_to_ctfd:
   stage: deploy
   script:
     - *dependencies
-    - chmod +x scripts/deploy_tasks_to_ctfd.sh
-    - scripts/deploy_tasks_to_ctfd.sh
+    - python3 scripts/fetch_tasks.py
   rules:
     - if: $CI_COMMIT_REF_PROTECTED == "true"
