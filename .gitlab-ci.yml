@@ -2,7 +2,7 @@ stages:
   - validate
   - deploy
 
-before_script:
+.dependencies_installation: &dependencies
   - pip install -r scripts/requirements.txt
   - mkdir .ctf
   - |
@@ -17,6 +17,7 @@ before_script:
 validate_task_structure:
   stage: validate
   script:
+    - *dependencies
     - python3 scripts/validate_structure.py
   rules:
     - changes:
@@ -26,6 +27,7 @@ validate_tasks:
   stage: validate
   needs: [validate_task_structure]
   script:
+    - *dependencies
     - python3 scripts/validate_tasks.py
   rules:
     - changes:
@@ -35,6 +37,7 @@ validate_ports:
   stage: validate
   needs: [validate_task_structure]
   script:
+    - *dependencies
     - python3 scripts/validate_ports.py
   rules:
     - changes:
@@ -50,6 +53,7 @@ deploy_tasks:
 deploy_tasks_to_ctfd:
   stage: deploy
   script:
+    - *dependencies
     - chmod +x scripts/deploy_tasks_to_ctfd.sh
     - scripts/deploy_tasks_to_ctfd.sh
   rules:
