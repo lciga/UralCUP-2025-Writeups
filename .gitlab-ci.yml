@@ -2,6 +2,9 @@ stages:
   - validate
   - deploy
 
+before_script:
+  - pip install -r requirements.txt
+
 validate_task_structure:
   stage: validate
   script:
