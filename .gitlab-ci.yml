@@ -8,7 +8,7 @@ validate_task_structure:
     - python3 scripts/validate_structure.py
   only:
     changes:
-      - tasks/*
+      - tasks/**/*
 
 validate_tasks:
   stage: validate
@@ -17,7 +17,7 @@ validate_tasks:
     - python3 scripts/validate_tasks.py
   only:
     changes:
-      - tasks/*
+      - tasks/**/*
 
 validate_ports:
   stage: validate
@@ -26,7 +26,7 @@ validate_ports:
     - python3 scripts/validate_ports.py
   only:
     changes:
-      - tasks/*
+      - tasks/**/*
 
 deploy_tasks:
   stage: deploy
