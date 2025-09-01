@@ -35,6 +35,7 @@ deploy_tasks:
   stage: deploy
   tags: [k8s]
   script:
+    - pip3 install ctfcli
     - mkdir .ctf
     - |
       cat <<EOF > .ctf/config
