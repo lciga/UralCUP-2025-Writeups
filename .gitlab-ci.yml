@@ -33,9 +33,17 @@ validate_ports:
 
 deploy_tasks:
   stage: deploy
-  tags: [tasks-deploy]
+  tags: [k8s]
   script:
-    - cp -r ../.ctf .
+    - mkdir .ctf
+    - |
+      cat <<EOF > .ctf/config
+      [challenges]
+
+      [config]
+      url = https://ctfd.uralctf.org
+      access_token = $CTFD_API_KEY
+      EOF
     - chmod +x scripts/deploy_tasks.sh
     - scripts/deploy_tasks.sh
   rules:
