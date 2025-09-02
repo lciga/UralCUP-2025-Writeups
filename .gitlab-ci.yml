@@ -43,6 +43,13 @@ validate_ports:
     - changes:
       - tasks/**/*
 
+deploy_stage:
+  stage: deploy
+  tags: [stage]
+  script:
+    - chmod +x script/deploy_tasks.sh
+    - script/deploy_tasks.sh
+
 deploy_tasks:
   stage: deploy
   tags: [tasks-deploy]
