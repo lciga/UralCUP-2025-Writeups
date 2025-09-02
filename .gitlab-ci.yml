@@ -45,7 +45,7 @@ validate_ports:
 
 deploy_stage:
   stage: deploy
-  tags: [stage]
+  tags: [staged]
   script:
     - chmod +x script/deploy_tasks.sh
     - script/deploy_tasks.sh
