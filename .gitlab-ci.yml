@@ -48,7 +48,7 @@ deploy_stage:
   tags: [staged]
   script:
     - chmod +x scripts/deploy_tasks.sh
-    - script/deploy_tasks.sh
+    - scripts/deploy_tasks.sh
 
 deploy_tasks:
   stage: deploy
