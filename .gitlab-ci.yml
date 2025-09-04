@@ -49,6 +49,9 @@ deploy_stage:
   script:
     - chmod +x scripts/deploy_tasks.sh
     - scripts/deploy_tasks.sh
+  rules:
+    - changes:
+      - tasks/**/*
 
 deploy_tasks:
   stage: deploy
