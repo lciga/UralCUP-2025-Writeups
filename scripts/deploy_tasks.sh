@@ -2,6 +2,7 @@
 set -e 
 
 CHANGED_FILES=$(git diff-tree --no-commit-id --name-only --diff-filter=d -r $CI_COMMIT_SHA);
+echo "$CHANGED_FILES"
 
 for file in $CHANGED_FILES; do
 	directory=$(dirname $file)
