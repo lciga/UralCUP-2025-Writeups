@@ -1,6 +1,7 @@
 stages:
   - validate
-  - deploy
+  - stage
+  - production
 
 .dependencies_installation: &dependencies
   - pip install -r scripts/requirements.txt
@@ -44,7 +45,7 @@ validate_ports:
       - tasks/**/*
 
 deploy_stage:
-  stage: deploy
+  stage: stage
   tags: [staged]
   script:
     - chmod +x scripts/deploy_tasks.sh
@@ -54,7 +55,7 @@ deploy_stage:
       - tasks/**/*
 
 deploy_tasks:
-  stage: deploy
+  stage: production
   tags: [tasks-deploy]
   script:
     - chmod +x scripts/deploy_tasks.sh
@@ -63,7 +64,7 @@ deploy_tasks:
     - if: $CI_COMMIT_REF_PROTECTED == "true"
 
 deploy_tasks_to_ctfd:
-  stage: deploy
+  stage: production
   script:
     - *dependencies
     - python3 scripts/fetch_tasks.py
