@@ -1,9 +1,15 @@
 stages:
+  - prepare
   - validate
   - stage
   - production
 
-.dependencies_installation: &dependencies
+
+prepare_dependencies:
+  stage: prepare
+  script:
+  - python3 -m venv venv
+  - source venv/bin/activate
   - pip install -r scripts/requirements.txt
   - mkdir .ctf
   - |
@@ -14,11 +20,17 @@ stages:
     url = https://ctfd.uralctf.org
     access_token = $CTFD_API_KEY
     EOF
+  artifacts:
+    paths:
+      - "venv/**"
+      - ".ctf/**"
 
 validate_task_structure:
   stage: validate
+  needs:
+    - prepare_dependencies
   script:
-    - *dependencies
+    - source venv/bin/activate
     - python3 scripts/validate_structure.py
   rules:
     - changes:
@@ -26,9 +38,11 @@ validate_task_structure:
 
 validate_tasks:
   stage: validate
-  needs: [validate_task_structure]
+  needs: 
+    - prepare_dependencies
+    - validate_task_structure
   script:
-    - *dependencies
+    - source venv/bin/activate
     - python3 scripts/validate_tasks.py
   rules:
     - changes:
@@ -36,9 +50,11 @@ validate_tasks:
 
 validate_ports:
   stage: validate
-  needs: [validate_task_structure]
+  needs: 
+    - prepare_dependencies
+    - validate_task_structure
   script:
-    - *dependencies
+    - source venv/bin/activate
     - python3 scripts/validate_ports.py
   rules:
     - changes:
@@ -65,8 +81,10 @@ deploy_tasks:
 
 deploy_tasks_to_ctfd:
   stage: production
+  dependencies:
+    - prepare_dependencies
   script:
-    - *dependencies
+    - source venv/bin/activate
     - python3 scripts/fetch_tasks.py
   rules:
     - if: $CI_COMMIT_REF_PROTECTED == "true"
