@@ -24,6 +24,8 @@ prepare_dependencies:
     paths:
       - "venv/**"
       - ".ctf/**"
+  rules:
+    - when: always
 
 validate_task_structure:
   stage: validate
