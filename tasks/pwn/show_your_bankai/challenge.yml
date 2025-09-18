@@ -1,0 +1,22 @@
+name: "Show your Bankai"
+author: "@mkarapuz"
+category: "pwn"
+description: |
+  Show your bankai to сaptain Kuchiki, maybe he'll appreciate it.
+attribution: "Автор [@mkarapuz](https://t.me/mkarapuz)"
+value: 1000
+type: dynamic
+extra:
+    initial: 1000
+    decay: 20
+    minimum: 50
+connection_info: "nc 5.1.53.43 5012"
+flags:
+  - UralCTF{T3ns@_Z4nG&t5u}
+tags:
+  - pwn
+  - medium
+files:
+  - public/bankai.tar.gz
+state: visible
+version: "0.1"
