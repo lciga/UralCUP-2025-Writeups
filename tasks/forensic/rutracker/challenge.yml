@@ -1,0 +1,31 @@
+name: "rutracker"
+author: "@lciga"
+category: "forensic"
+
+description: |
+  Решил вспомнить молодость и скачал одну игру, но видимо там был вирус и теперь я потерял самое ценное, что у меня было...
+  [Файл](https://disk.360.yandex.ru/d/GzbzUoJiDFmFcw)
+
+attribution: "Автор [@lciga](https://t.me/lciga)"
+value: 1000
+type: dynamic
+
+extra:
+    initial: 1000
+    decay: 10
+    minimum: 10
+
+flags:
+  - UralCTF{M0m_1M_n07_4_p1R4t3}
+
+tags:
+  - forensic
+  - medium
+
+files: 
+  - public/GTA cheatcodes.enc
+  - public/README_RECOVER.txt
+
+state: visible
+
+version: "0.1"

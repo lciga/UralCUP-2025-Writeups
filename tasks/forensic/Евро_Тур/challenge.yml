@@ -1,0 +1,31 @@
+name: "Евро Тур"
+author: "@lciga"
+category: "forensic"
+
+description: |
+  -О-оу
+  -Что?
+  -Длинный тонель!
+
+attribution: "Автор [@lciga](https://t.me/lciga)"
+value: 1000
+type: dynamic
+
+extra:
+    initial: 1000
+    decay: 10
+    minimum: 10
+
+flags:
+  - UralCTF{wH47_d035_7h3_M0v13_H4v3_70_d0_w17H_17?}
+
+tags:
+  - forensic
+  - easy
+
+files: 
+  - public/capture.pcapng
+
+state: visible
+
+version: "0.1"
