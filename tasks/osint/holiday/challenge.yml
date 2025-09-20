@@ -1,0 +1,24 @@
+name: "Праздник к нам приходит"
+author: "@mkarapuz"
+category: "osint"
+description: |
+  От кого можно было получить это чудо техники в подарок на новый год?
+  Формат флага: UralCTF{Full_Name_On_English}
+attribution: "Автор [@mkarapuz](https://t.me/mkarapuz)"
+value: 1000
+type: dynamic
+extra:
+    initial: 1000
+    decay: 20
+    minimum: 50
+flags:
+  - UralCTF{Genevieve_Anne_Callahan}
+tags:
+  - osint
+  - easy
+files:
+  - public/toaster.jpg
+hints:
+  - Попробуйте поискать сайты с винтажными тостерами.
+state: visible
+version: "0.1"
