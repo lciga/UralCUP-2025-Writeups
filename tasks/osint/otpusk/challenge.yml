@@ -7,7 +7,7 @@ description: |
   Вот только я сильно увлёкся и случайно узнал, где хостится сайт этого отеля. Теперь и вы попробуйте найти.
 
   Формат флага: UralCTF{hosting _provider}
-# attribution: "Автор [@mkarapuz](https://t.me/mkarapuz)"
+attribution: ""
 value: 1000
 type: dynamic
 extra:
