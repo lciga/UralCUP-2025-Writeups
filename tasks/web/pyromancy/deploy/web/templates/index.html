@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pyromancy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">Pyromancy</h1>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2>Pyromancy</h2>
+                <p>An easy way to create and manage your python handlers. Builded with Pyro4 and Pickle.</p>
+                <button class="cta-button">Get Started</button>
+            </div>
+        </section>
+
+        <section id="about" class="features">
+            <div class="container">
+                <h2>About Us</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Easy to integrate</h3>
+                        <p>Use Pyro4 to interact with fine-designed, isolated python tasks.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Free to personal use, without registration!</h3>
+                        <p>You can have your free account with up to 10 handlers.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Deeply documented</h3>
+                        <p>You can aquire all required documentation <a href="/docs">here</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Pyromancy. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

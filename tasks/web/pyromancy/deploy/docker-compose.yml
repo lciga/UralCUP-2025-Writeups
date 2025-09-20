@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  pyromancy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5643:9090"
+      - "5644:5644"
+      - "5645:5000"

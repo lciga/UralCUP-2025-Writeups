@@ -49,7 +49,7 @@ connection_info: "nc example.com 5432"
 #     }
 
 flags:
-  - TyumenCTF{hello_task}
+  - UralCTF{hello_task}
 
 # Особо ни на что не влияет, по желанию можно раскомментировать и заполнить
 # topics:
