@@ -1,0 +1,24 @@
+name: "Экзамен по стеганографии"
+author: "@alexandrlatin"
+category: "stego"
+description: |
+  Ну что, товарищ студент, хоть на экзамен вы соизволили явиться.  
+  Тяните билет, но за каждый пропуск лекции я вам накину дополнительный вопрос.  
+  Не ответите — на пересдачу.
+attribution: "Автор [@alexandrlatin](https://t.me/alexandrlatin)"
+value: 1000
+type: dynamic
+extra:
+    initial: 1000
+    decay: 20
+    minimum: 50
+flags:
+  - uralctf{th3re_is_s1mple_st3g4n0_m3th0ds_3very0n3_5h0uld_kn0w_1t}
+  - UralCTF{th3re_is_s1mple_st3g4n0_m3th0ds_3very0n3_5h0uld_kn0w_1t}
+tags:
+  - stego
+  - easy
+files:
+  - public/exam.zip
+state: visible
+version: "0.1"
