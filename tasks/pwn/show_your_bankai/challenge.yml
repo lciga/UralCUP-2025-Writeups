@@ -3,7 +3,7 @@ author: "@mkarapuz"
 category: "pwn"
 description: |
   Show your bankai to сaptain Kuchiki, maybe he'll appreciate it.
-attribution: "Автор [@mkarapuz](https://t.me/mkarapuz)"
+# attribution: "Автор [@mkarapuz](https://t.me/mkarapuz)"
 value: 1000
 type: dynamic
 extra:

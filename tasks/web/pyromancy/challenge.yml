@@ -1,84 +1,25 @@
-# Имя, которое отразится на платформе CTFd
 name: "Pyromancy"
-# Ваш Telegram никнейм (не отображается на платформе)
 author: "@w1p30ut"
-# Категория - название папки, в которой лежит таск
 category: "web"
-# Категория будет отображаться на платформе в описании таска. Поддерживается md формат 
 description: |
   Какие-то очередные "стартаперы" предложили нам внедрить их решение. Надо бы проверить его на безопасность...
-# Ссылка на ваш ТГ аккаунт, чтобы с вами могли оперативно связаться по задаче
-attribution: "Автор [@w1p30ut](https://t.me/w1p30ut)"
-value: 100
+# attribution: "Автор [@w1p30ut](https://t.me/w1p30ut)"
+value: 1000
 type: dynamic
 
 # Reference - https://github.com/CTFd/ctfcli/blob/master/ctfcli/spec/challenge-example.yml
 extra:
-    initial: 100
-    decay: 10
-    minimum: 10
+    initial: 1000
+    decay: 20
+    minimum: 60
 
-# Описание как коннектиться к вашей задаче. Сюда же можно и ссылку дать, если не в описании
-connection_info: "http://5.1.53.43:8484"
-
-# Раскомментируйте, если хотите сделать так, чтобы у таска было ограниченное число попыток сдачи
-# Мы в рамках VrnCTF не используем
-# attempts: 5
-
-# Все способы описать флаг
-# flags:
-#     # A static case sensitive flag
-#     - flag{3xampl3}
-#     # A static case sensitive flag created with a dictionary
-#     - {
-#         type: "static",
-#         content: "flag{wat}",
-#     }
-#     # A static case insensitive flag
-#     - {
-#         type: "static",
-#         content: "flag{wat}",
-#         data: "case_insensitive",
-#     }
-#     # A regex case insensitive flag
-#     - {
-#         type: "regex",
-#         content: "(.*)STUFF(.*)",
-#         data: "case_insensitive",
-#     }
-
+connection_info: "http://5.1.53.43:5645"
 flags:
   - UralCTF{3mbr4c3_7h3_fl4m3}
-
-# Особо ни на что не влияет, по желанию можно раскомментировать и заполнить
-# topics:
-#     - sql injection
-
 tags:
   - web
   - easy
-
-# Файлы из папки public, которые раздаем пользователям. Либо текстовые файлики, либо архивы
-# Сильно жирные файлы раздаем через гугл-облако/яндекс-диск/линк с s3
 files: 
-
-# Хинты по умолчанию скрыты, сделайте их заранее, их откроем на половине соревнований на нерешенные таски
-# hints:
-#     - {
-#         content: "This hint costs points",
-#         cost: 10
-#     }
-#     - This hint is free
-
 hints: 
-
-# Если ваш таск зависит от другого таска, например, они идут друг за другом и без сдачи одного не будет доступен другой
-# requirements:
-#     - "Warmup"
-#     - "Are you alive"
-
-# visible/hidden на платформе
 state: visible
-
-# Не трогаем, версия спецификации
 version: "0.1"

@@ -3,7 +3,7 @@ author: "@mkarapuz"
 category: "pwn"
 description: |
   I'm tired of this chaos, so deal with it.
-attribution: "Автор [@mkarapuz](https://t.me/mkarapuz)"
+# attribution: "Автор [@mkarapuz](https://t.me/mkarapuz)"
 value: 1000
 type: dynamic
 extra:
