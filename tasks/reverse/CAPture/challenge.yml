@@ -7,13 +7,13 @@ category: "reverse"
 description: |
   Как же долго я возился с этой лабой... а в итоге получился какой-то дроппер.
   
-attribution: "Автор [@mendottan](https://t.me/mendottan)"
+attribution: ""
 value: 1000
 type: dynamic
 
 extra:
     initial: 1000
-    decay: 20
+    decay: 40
     minimum: 50
 
 flags:
