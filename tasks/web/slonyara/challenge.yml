@@ -1,0 +1,26 @@
+name: "Slonyara"
+author: "@brt4rce"
+category: "web"
+description: |
+  Решил выгулять старого доброго слоняру, погляди что из этого вышло.
+attribution: ""
+value: 1000
+type: dynamic
+
+# Reference - https://github.com/CTFd/ctfcli/blob/master/ctfcli/spec/challenge-example.yml
+extra:
+    initial: 1000
+    decay: 20
+    minimum: 60
+
+connection_info: "http://5.1.53.43:5059"
+flags:
+  - UralCTF{php_d3ser1alizat10n_wi7h_s0m3_f6n}
+tags:
+  - web
+  - easy
+files:
+  - public/entry_pic.png
+hints: 
+state: visible
+version: "0.1"

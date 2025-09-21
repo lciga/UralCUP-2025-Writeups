@@ -1,0 +1,1 @@
+UralCTF{php_d3ser1alizat10n_wi7h_s0m3_f6n}

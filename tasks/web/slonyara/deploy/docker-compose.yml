@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  slonyara:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5059:80"
+    restart: unless-stopped
