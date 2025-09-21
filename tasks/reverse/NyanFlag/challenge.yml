@@ -1,0 +1,34 @@
+name: "NyanFlag"
+
+author: "@mendottan"
+
+category: "reverse"
+
+description: |
+  Котик-проказник нахулиганил и съел твой флаг!
+  
+attribution: "Автор [@mendottan](https://t.me/mendottan)"
+value: 1000
+type: dynamic
+
+extra:
+    initial: 1000
+    decay: 20
+    minimum: 50
+
+flags:
+  - UralCTF{d0s_d3bugg3r_vs_k1tt3n}
+
+tags:
+  - reverse
+  - easy
+
+files: 
+  - public/nyanflag.tar.gz
+
+hints:
+  - .COM файл под DOS
+
+state: visible
+
+version: "0.1"
