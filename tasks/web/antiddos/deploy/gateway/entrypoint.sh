@@ -10,7 +10,7 @@
 # iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 
 iptables -A INPUT -p tcp --dport 80 -m state --state NEW -m recent --name web --rcheck --seconds 30 --hitcount 2 -j DROP
-iptables -A INPUT -p tcp --dport 80 -m state --state NEW -j HTTP_RATE_LIMIT
+iptables -A INPUT -p tcp --dport 80 -m state --state NEW -m recent --set --name web
 iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 
 # Run nginx
