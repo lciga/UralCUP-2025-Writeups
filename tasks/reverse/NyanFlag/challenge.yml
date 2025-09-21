@@ -27,7 +27,7 @@ files:
   - public/nyanflag.tar.gz
 
 hints:
-  - .COM файл под DOS
+  # - .COM файл под DOS
 
 state: visible
 
