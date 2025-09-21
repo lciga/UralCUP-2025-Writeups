@@ -24,6 +24,7 @@ tags:
   - crypto
   - medium
 files: 
-  - public/*
+  - public/output.txt
+  - public/task.py
 state: visible
 version: "0.1"

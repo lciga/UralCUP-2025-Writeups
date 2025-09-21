@@ -50,6 +50,7 @@ tags:
   - easy
 
 files: 
-  - public/*
+  - public/output.txt
+  - public/task.py
 state: visible
 version: "0.1"
