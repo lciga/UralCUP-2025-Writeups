@@ -6,5 +6,5 @@ services:
       dockerfile: Dockerfile
     container_name: duffy_duck
     ports:
-      - "5099:5099"
+      - "5023:5099"
     restart: unless-stopped
