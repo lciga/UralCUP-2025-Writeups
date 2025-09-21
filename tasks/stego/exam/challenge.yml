@@ -10,7 +10,7 @@ value: 1000
 type: dynamic
 extra:
     initial: 1000
-    decay: 20
+    decay: 40
     minimum: 50
 flags:
   - uralctf{th3re_is_s1mple_st3g4n0_m3th0ds_3very0n3_5h0uld_kn0w_1t}

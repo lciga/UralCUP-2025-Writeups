@@ -13,8 +13,8 @@ type: dynamic
 
 extra:
     initial: 1000
-    decay: 10
-    minimum: 10
+    decay: 40
+    minimum: 50
 
 flags:
   - UralCTF{M0m_1M_n07_4_p1R4t3}
