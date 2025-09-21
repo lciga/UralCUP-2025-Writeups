@@ -42,7 +42,7 @@ validate_tasks:
   stage: validate
   needs: 
     - prepare_dependencies
-    - validate_task_structure
+    # - validate_task_structure
   script:
     - source venv/bin/activate
     - python3 scripts/validate_tasks.py
@@ -54,7 +54,7 @@ validate_ports:
   stage: validate
   needs: 
     - prepare_dependencies
-    - validate_task_structure
+    # - validate_task_structure
   script:
     - source venv/bin/activate
     - python3 scripts/validate_ports.py
@@ -62,15 +62,15 @@ validate_ports:
     - changes:
       - tasks/**/*
 
-deploy_stage:
-  stage: stage
-  tags: [staged]
-  script:
-    - chmod +x scripts/deploy_tasks.sh
-    - scripts/deploy_tasks.sh
-  rules:
-    - changes:
-      - tasks/**/*
+# deploy_stage:
+#   stage: stage
+#   tags: [staged]
+#   script:
+#     - chmod +x scripts/deploy_tasks.sh
+#     - scripts/deploy_tasks.sh
+#   rules:
+#     - changes:
+#       - tasks/**/*
 
 deploy_tasks:
   stage: production
