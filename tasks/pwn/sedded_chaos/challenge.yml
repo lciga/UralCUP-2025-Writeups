@@ -3,6 +3,8 @@ author: "@mkarapuz"
 category: "pwn"
 description: |
   I'm tired of this chaos, so deal with it.
+  
+  > nc 5.1.53.43 5013
 attribution: ""
 value: 1000
 type: dynamic

@@ -3,6 +3,8 @@ author: "@w1p30ut"
 category: "web"
 description: |
   Какие-то очередные "стартаперы" предложили нам внедрить их решение. Надо бы проверить его на безопасность...
+
+  > http://5.1.53.43:5645
 attribution: ""
 value: 1000
 type: dynamic
@@ -10,7 +12,7 @@ type: dynamic
 # Reference - https://github.com/CTFd/ctfcli/blob/master/ctfcli/spec/challenge-example.yml
 extra:
     initial: 1000
-    decay: 20
+    decay: 40
     minimum: 60
 
 connection_info: "http://5.1.53.43:5645"

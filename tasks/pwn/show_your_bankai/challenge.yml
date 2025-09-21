@@ -3,6 +3,8 @@ author: "@mkarapuz"
 category: "pwn"
 description: |
   Show your bankai to сaptain Kuchiki, maybe he'll appreciate it.
+
+  > nc 5.1.53.43 5012
 attribution: ""
 value: 1000
 type: dynamic
