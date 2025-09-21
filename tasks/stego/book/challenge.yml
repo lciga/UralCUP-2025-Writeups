@@ -1,0 +1,23 @@
+name: "Тяжело в учении, а легко не бывает"
+author: "@alexandrlatin"
+category: "stego"
+description: |
+  Спецэфическая литература - штука серьёзная. Я думал, что после китайского Демидовича меня трудно чем-то сломить, но вот Таненбаум... на испанском…...... 
+  Кажется, что мне начинает мерещиться какой-то текст… Или не только мне?
+attribution: "Автор [@alexandrlatin](https://t.me/alexandrlatin)"
+value: 1000
+type: dynamic
+extra:
+    initial: 1000
+    decay: 20
+    minimum: 50
+flags:
+  - uralctf{th4n3nb4um_1s_h1d1ng_s0m3t1ng_und3r_t3xt}
+  - UralCTF{th4n3nb4um_1s_h1d1ng_s0m3t1ng_und3r_t3xt}
+tags:
+  - stego
+  - easy
+files:
+  - public/Sistemas Operativos 3 ed. Andrew Tanenbaum.pdf
+state: visible
+version: "0.1"
