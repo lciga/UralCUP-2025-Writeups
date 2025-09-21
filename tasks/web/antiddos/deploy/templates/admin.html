@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+    <h1>Admin Dashboard</h1>
+    <p>Statistics and insights about notes in the system.</p>
+    
+    <!-- User Filter Form -->
+    <div class="card">
+        <h2>Filter Statistics</h2>
+        <form method="GET" action="{{ url_for('admin') }}">
+            <div class="form-group">
+                <label for="user_filter">Show statistics for:</label>
+                <select id="user_filter" name="user_filter" class="form-control" onchange="this.form.submit()">
+                    <option value="all" {% if selected_user == 'all' %}selected{% endif %}>All Users</option>
+                    {% for user in all_users %}
+                        <option value="{{ user[0] }}" {% if selected_user == user[0]|string %}selected{% endif %}>{{ user[1] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </form>
+    </div>
+    
+    <!-- Statistics Cards -->
+    <div class="stats-container">
+        <div class="stat-card">
+            <div class="stat-label">Total Notes</div>
+            <div class="stat-number">{{ total_notes }}</div>
+            {% if selected_user != 'all' %}
+                <div class="stat-subtext">For selected user</div>
+            {% endif %}
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-label">Recent Notes (7 days)</div>
+            <div class="stat-number">{{ recent_notes }}</div>
+            {% if selected_user != 'all' %}
+                <div class="stat-subtext">For selected user</div>
+            {% endif %}
+        </div>
+        
+        {% if selected_user == 'all' %}
+            <div class="stat-card">
+                <div class="stat-label">Avg Notes Per User</div>
+                <div class="stat-number">{{ avg_notes_per_user }}</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-label">Most Active User</div>
+                <div class="stat-number">
+                    {% if most_active_user %}
+                        {{ most_active_user[0] }}
+                    {% else %}
+                        N/A
+                    {% endif %}
+                </div>
+                <div class="stat-subtext">
+                    {% if most_active_user %}
+                        {{ most_active_user[1] }} notes
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    
+    <!-- Notes Per User Table -->
+    <div class="card">
+        <h2>
+            {% if selected_user == 'all' %}
+                Notes Per User
+            {% else %}
+                Notes for Selected User
+            {% endif %}
+        </h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Notes Count</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in notes_per_user %}
+                    <tr>
+                        <td>{{ user[1] }}</td>
+                        <td>{{ user[2] }}</td>
+                        <td>
+                            <a href="{{ url_for('admin', user_filter=user[0]) }}" class="btn btn-sm">View Stats</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    <style>
+        .stat-subtext {
+            font-size: 0.8rem;
+            color: var(--blue-primary);
+            margin-top: 5px;
+        }
+        
+        .btn-sm {
+            padding: 5px 10px;
+            font-size: 0.8rem;
+        }
+        
+        @media (max-width: 768px) {
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* Additional styles for enhanced admin page */
+.form-control {
+    background-color: var(--blue-tertiary);
+    border: 1px solid var(--blue-primary);
+    color: var(--light-text);
+    padding: 10px;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--blue-primary);
+    box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.2);
+}
+
+select.form-control {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2364ffda' viewBox='0 0 16 16'%3E%3Cpath d='M8 12L2 6h12L8 12z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background-color: var(--blue-secondary);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--blue-primary);
+    margin: 10px 0;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: var(--light-text);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--blue-tertiary);
+}
+
+th {
+    background-color: var(--blue-secondary);
+    color: var(--blue-primary);
+}
+
+tr:hover {
+    background-color: var(--blue-tertiary);
+}
+    </style>
+{% endblock %}

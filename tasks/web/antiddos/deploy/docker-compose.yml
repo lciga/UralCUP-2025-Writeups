@@ -1,0 +1,47 @@
+services:
+  pynote_app:
+    build: .
+    container_name: pynote_app
+    # ports:
+    #   - '5099:80'
+    depends_on:
+      - pynote_db
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1024M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
+    networks:
+      - pynote
+
+  pynote_db:
+    build:
+      context: ./postgres
+      dockerfile: Dockerfile
+    container_name: pynote_db
+    environment:
+      - POSTGRES_USER=pynote
+      - POSTGRES_PASSWORD=afm3ersjd0f093qkwaeifsdj09iojm
+      - POSTGRES_DB=pynote_db
+    networks:
+      - pynote
+    
+  pynote_gateway:
+    build:
+      context: ./gateway
+      dockerfile: Dockerfile
+    container_name: pynote_gateway
+    cap_add:
+      - NET_ADMIN
+    networks:
+      - pynote
+    ports:
+      - "5096:80"
+    depends_on:
+      - pynote_app
+
+networks:
+  pynote:

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}My Notes{% endblock %}
+
+{% block content %}
+    <h1>Welcome, {{ username }}!</h1>
+    <p>Here are your notes:</p>
+    
+    {% if notes %}
+        <div class="notes-grid">
+            {% for note in notes %}
+                <div class="note-card">
+                    <h3 class="note-title"><a href="/note/{{ note[0] }}">{{ note[1] }}</a></h3>
+                    <p class="note-content">{{ note[2] }}</p>
+                    <span class="note-date">{{ note[3].strftime('%Y-%m-%d') }}</span>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="card">
+            <p>You don't have any notes yet. <a href="{{ url_for('create_note') }}">Create your first note!</a></p>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+
+{% block title %}{{ note[1] }}{% endblock %}
+
+{% block content %}
+<div class="note-detail-container">
+    <div class="note-header">
+        <h1 class="note-title">{{ note[1] }}</h1>
+    </div>
+    
+    <div class="note-meta">
+        <div class="meta-item">
+            <span class="meta-label">Created:</span>
+            <span class="meta-value">{{ note[3].strftime('%B %d, %Y at %H:%M') }}</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Last updated:</span>
+            <span class="meta-value">{{ note[4].strftime('%B %d, %Y at %H:%M') }}</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Note ID:</span>
+            <span class="meta-value">#{{ note[0] }}</span>
+        </div>
+    </div>
+    
+    <div class="note-content">
+        {{ note[2] | replace('\n', '<br>') | safe }}
+    </div>
+    
+    <div class="note-footer">
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Notes</a>
+    </div>
+</div>
+
+<style>
+.note-detail-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--blue-tertiary);
+}
+
+.note-title {
+    color: var(--blue-primary);
+    font-size: 2.2rem;
+    margin-right: 20px;
+    word-break: break-word;
+}
+
+.note-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.btn-edit {
+    background-color: var(--blue-primary);
+    color: var(--darker-bg);
+}
+
+.btn-edit:hover {
+    background-color: transparent;
+    color: var(--blue-primary);
+    outline: 1px solid var(--blue-primary);
+}
+
+.btn-delete {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: transparent;
+    color: #ff6b6b;
+    outline: 1px solid #ff6b6b;
+}
+
+.delete-form {
+    margin: 0;
+}
+
+.note-meta {
+    background-color: var(--blue-secondary);
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px 30px;
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.meta-label {
+    font-size: 0.85rem;
+    color: var(--blue-primary);
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.meta-value {
+    color: var(--light-text);
+    font-size: 0.95rem;
+}
+
+.note-content {
+    background-color: var(--blue-secondary);
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 25px;
+    line-height: 1.7;
+    font-size: 1.1rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.note-content br {
+    margin-bottom: 15px;
+    display: block;
+    content: "";
+}
+
+.note-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+    .note-header {
+        flex-direction: column;
+    }
+    
+    .note-actions {
+        margin-top: 15px;
+        width: 100%;
+        justify-content: flex-end;
+    }
+    
+    .note-meta {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+</style>
+{% endblock %}
