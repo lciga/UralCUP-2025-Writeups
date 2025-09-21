@@ -75,7 +75,7 @@ class ThreadedServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
     pass
 
 if __name__ == "__main__":
-    HOST, PORT = "localhost", 5099
+    HOST, PORT = "0.0.0.0", 5099
     server = ThreadedServer((HOST, PORT), DHHandler)
     server.allow_reuse_address = True
     print(f"Server running on {HOST}:{PORT}")
