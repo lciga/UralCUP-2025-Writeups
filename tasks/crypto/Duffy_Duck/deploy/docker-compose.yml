@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  duffy_duck:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: duffy_duck
+    ports:
+      - "5099:5099"
+    restart: unless-stopped
