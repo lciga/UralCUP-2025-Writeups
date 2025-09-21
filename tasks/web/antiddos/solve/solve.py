@@ -7,10 +7,10 @@ def register(s: requests.Session, url: str) -> bool:
     }
 
     data = {
-        'username': 'sploit3',
-        'email': 'sploit3@ctf.ctf',
-        'password': 'sploit3',
-        'confirm_password': 'sploit3'
+        'username': 'qwerty123123',
+        'email': 'qwerty123123@ctf.ctf',
+        'password': 'qwerty123123',
+        'confirm_password': 'qwerty123123'
     }
     resp = s.post(f"{url}/register", headers=headers, data=data, timeout=1)
     if resp.status_code == 302:
@@ -24,8 +24,8 @@ def login(s: requests.Session, url: str):
     }
 
     data = {
-        'username': 'sploit3',
-        'password': 'sploit3',
+        'username': 'qwerty123123',
+        'password': 'qwerty123123',
     }
 
     resp = s.post(f"{url}/login", headers=headers, data=data, timeout=1)
