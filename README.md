@@ -26,7 +26,7 @@
 ## PWN
 | Таск                    | Райтап                                     |
 | ----------------------- | ------------------------------------------ |
-| Seeded Chaos [Готов](./tasks/pwn/sedded_chaos/README.md) |
+| Seeded Chaos | [Готов](./tasks/pwn/sedded_chaos/README.md) |
 | Show your Bankai | [Готов](./tasks/pwn/show_your_bankai/README.md) |
 
 
