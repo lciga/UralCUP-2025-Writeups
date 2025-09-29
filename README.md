@@ -1,23 +1,53 @@
-# UralCTF2025 - репозиторий для разработчиков
+# UralCTF2025
 
-## Общая информация
+## Crypto
+| Таск                    | Райтап                                     |
+| ----------------------- | ------------------------------------------ |
+| rsa-1 | [Готов](./tasks/crypto/rsa-1/README.md) |
+| rsa-2 | [Готов](./tasks/crypto/rsa-2/README.md) |
+| rsa-3 | [Готов](./tasks/crypto/rsa-3/README.md) |
+| Duffy Duck | [Готов](./tasks/crypto/Duffy_Duck/README.md) |
+| Задачка по геометрии | [Готов](./tasks/crypto/Задачка_по_геометрии/README.md) |
 
-Формат флага `UralCTF{}`.
+## Forensic
+| Таск                    | Райтап                                     |
+| ----------------------- | ------------------------------------------ |
+| Биохакер | [Готов](./tasks/forensic/Биохакер/README.md) |
+| Евро Тур | [Готов](./tasks/forensic/Евро_Тур/README.md) |
+| rutracker | [Готов](./tasks/forensic/rutracker/README.md) |
 
-## Формат деплоя и репозитория
+## OSINT
+| Таск                    | Райтап                                     |
+| ----------------------- | ------------------------------------------ |
+| Праздник к нам приходит | [Готов](./tasks/osint/holiday/README.md) |
+| Вот бы в отпуск... | [Готов](./tasks/osint/otpusk/README.md) |
+| Планы, деньги, два ствола | [Готов](./tasks/osint/tahiti/README.md) |
 
-1. Все задания, которые требуют развертывания на стороне сервера (web/ppc/etc) - деплояться **строго** через Dockerfile и docker-compose.yml. Пример можно найти [тут](example/web/example_task/deploy).
-2. Каждый таск должен иметь описание по установленному шаблону, пример [тут](example/web/example_task/README.md).
-3. Каждое задание обязано иметь спецификацию, пример [тут](example/web/example_task/challenge.yml).
-3. Задания разбиты по категориям и заносятся в соответствующие директории.
-4. Формат репозитория:
-   - web (папка с названием категории)
-     - task1 (папка с названием первого задания)
-       - deploy (файлы необходимые для деплоя на сервер)
-       - public (файлы, которые выдаются участникам, может быть пустым)
-       - solve (файлы для решения задачи: подробное описание, эксплоиты, код)
-       - src (файлы исходники, особенно для reverse / pwn категорий)
-     - task2 (папка с названием второго задания)
-       ...
-     - task3 (папка с названием третьего задания)
-       ...
+## PWN
+| Таск                    | Райтап                                     |
+| ----------------------- | ------------------------------------------ |
+| Seeded Chaos [Готов](./tasks/pwn/sedded_chaos/README.md) |
+| Show your Bankai | [Готов](./tasks/pwn/show_your_bankai/README.md) |
+
+
+## Reverse
+| Таск                    | Райтап                                     |
+| ----------------------- | ------------------------------------------ |
+| CAPture | [Готов](./tasks/reverse/CAPture/README.md) |
+| NyanFlag | [Готов](./tasks/reverse/NyanFlag/README.md) |
+| SYSMODAL | [Готов](./tasks/reverse/SYSMODAL/README.md) |
+
+## Stego
+| Таск                    | Райтап                                     |
+| ----------------------- | ------------------------------------------ |
+| Тяжело в учении, а легко не бывает | [Готов](./tasks/stego/book/README.md) |
+| brainrot adventures | [Готов](./tasks/stego/brainrot/README.md) |
+| Экзамен по стеганографии | [Готов](./tasks/stego/exam/README.md) |
+| Песнь изо льдов | [Готов](./tasks/stego/song-from-the-ices/README.md) |
+
+## Web
+| Таск                    | Райтап                                     |
+| ----------------------- | ------------------------------------------ |
+| AntyDDoS | [Готов](./tasks/web/antiddos/README.md) |
+| Pyromancy | [Готов](./tasks/web/pyromancy/README.md) |
+| Slonyara | [Готов](./tasks/web/slonyara/README.md) |
