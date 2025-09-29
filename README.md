@@ -48,6 +48,6 @@
 ## Web
 | Таск                    | Райтап                                     |
 | ----------------------- | ------------------------------------------ |
-| AntyDDoS | [Готов](./tasks/web/antiddos/README.md) |
+| AntiDDoS | [Готов](./tasks/web/antiddos/README.md) |
 | Pyromancy | [Готов](./tasks/web/pyromancy/README.md) |
 | Slonyara | [Готов](./tasks/web/slonyara/README.md) |
