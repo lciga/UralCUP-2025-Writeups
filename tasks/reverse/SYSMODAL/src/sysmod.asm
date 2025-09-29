@@ -1,3 +1,7 @@
+; SHELL_SYSMODAL_Message driver
+; ml -c -DMASM6 sysmod.asm
+; link -vxd sysmod.obj -def:sysmod.def
+
 .386
 
 include vmm.inc

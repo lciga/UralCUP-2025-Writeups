@@ -1,4 +1,6 @@
-; rixus semi-ring0 vxd loader based on bb code
+; semi-ring0 vxd loader based on bb code
+; tasm32 /ml /m3 sys
+; tlink32 /Tpe /aa sys,sys,,import32.lib
 
 .586p                          
 .model  flat, stdcall
